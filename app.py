@@ -8,6 +8,16 @@ import tensorflow.keras as keras
 import os
 import tempfile
 import tensorflow.keras.backend as K
+from typing import Tuple
+
+seed = 42
+tf.random.set_seed(seed)
+np.random.seed(seed)
+
+# Sampling rate for audio playback
+_SAMPLING_RATE = 16000
+key_order = ['pitch', 'step', 'duration']
+
 
 app = Flask(__name__)
 
@@ -51,13 +61,14 @@ def midi_to_notes(pm: pretty_midi.PrettyMIDI) -> pd.DataFrame:
 def predict_next_note(
     notes: np.ndarray,
     model: keras.Model,
-    temperature: float = 1.0) -> tuple[int, float, float]:
+    temperature: float = 1.0) -> Tuple[int, float, float]:
     """Generates a note as a tuple of (pitch, step, duration), using a trained sequence model."""
     assert temperature > 0
 
     # Add batch dimension
     inputs = tf.expand_dims(notes, 0)
 
+    print(model.summary())
     predictions = model.predict(inputs)
     pitch_logits = predictions['pitch']
     step = predictions['step']
@@ -75,6 +86,39 @@ def predict_next_note(
 
     return int(pitch), float(step), float(duration)
 
+
+
+def create_sequences(
+    dataset: tf.data.Dataset,
+    seq_length: int,
+    vocab_size = 128,
+) -> tf.data.Dataset:
+  """Returns TF Dataset of sequence and label examples."""
+  seq_length = seq_length+1
+
+  # Take 1 extra for the labels
+  windows = dataset.window(seq_length, shift=1, stride=1,
+                              drop_remainder=True)
+
+  # `flat_map` flattens the" dataset of datasets" into a dataset of tensors
+  flatten = lambda x: x.batch(seq_length, drop_remainder=True)
+  sequences = windows.flat_map(flatten)
+
+  # Normalize note pitch
+  def scale_pitch(x):
+    x = x/[vocab_size,1.0,1.0]
+    return x
+
+  # Split the labels
+  def split_labels(sequences):
+    inputs = sequences[:-1]
+    labels_dense = sequences[-1]
+    labels = {key:labels_dense[i] for i,key in enumerate(key_order)}
+
+    return scale_pitch(inputs), labels
+
+  return sequences.map(split_labels, num_parallel_calls=tf.data.AUTOTUNE)
+
 @app.route('/predict', methods=['POST'])
 def predict():
     # Check if a file is uploaded
@@ -82,41 +126,44 @@ def predict():
         return jsonify({'error': 'No file uploaded'}), 400
     
     file = request.files['file']
-    print("1")
     
     # Check if the file is empty
     if file.filename == '':
         return jsonify({'error': 'No file selected'}), 400
-    print("1")
     
 
     # Save the uploaded file to a temporary location
     _, temp_file_path = tempfile.mkstemp(suffix='.mid')
     file.save(temp_file_path)
 
-    print("1")
+    
     
     # Process the MIDI file
-    input_data = process_midi_file(temp_file_path)
-
-    print("1")
+    input_data = process_midi_file(temp_file_path) 
     
-    # Generate MIDI notes using the model
-    generated_notes = generate_notes(input_data, model)
+    key_order = ['pitch', 'step', 'duration']
+    train_notes = np.stack([input_data[key] for key in key_order], axis=1)
+    notes_ds = tf.data.Dataset.from_tensor_slices(train_notes)
+    notes_ds.element_spec
 
-    print("1")
+
+    temperature = 2.0
+    num_predictions = 120
     
-    # Convert the generated notes to a MIDI file
-    _, predicted_file_path = tempfile.mkstemp(suffix='.mid')
-    notes_to_midi(generated_notes, out_file=predicted_file_path)
-    print("1")
-    # Delete the temporary input MIDI file
-    os.remove(temp_file_path)
-    print("1")
-    # Return the predicted MIDI file path in the response
-    return send_file(predicted_file_path, as_attachment=True)
+    
+    sample_notes = np.stack([input_data[key] for key in key_order], axis=1)
+    
+    
+    seq_length = 25
+    vocab_size = 128
+    seq_ds = create_sequences(notes_ds, seq_length, vocab_size)
+    seq_ds.element_spec
 
-def generate_notes(input_notes, model, temperature=2.0, num_predictions=120):
+# The initial sequence of notes; pitch is normalized similar to training
+# sequences
+    input_notes = (
+        sample_notes[:seq_length] / np.array([vocab_size, 1, 1]))
+
     generated_notes = []
     prev_start = 0
     for _ in range(num_predictions):
@@ -129,7 +176,40 @@ def generate_notes(input_notes, model, temperature=2.0, num_predictions=120):
         input_notes = np.append(input_notes, np.expand_dims(input_note, 0), axis=0)
         prev_start = start
 
-    return pd.DataFrame(generated_notes, columns=['pitch', 'step', 'duration', 'start', 'end'])
+    generated_notes = pd.DataFrame(
+        generated_notes, columns=(*key_order, 'start', 'end'))
+    
+    
+    
+
+    
+    # Generate MIDI notes using the model
+    # generated_notes = generate_notes(input_data, model)
+    
+    # Convert the generated notes to a MIDI file
+    _, predicted_file_path = tempfile.mkstemp(suffix='.mid')
+    notes_to_midi(generated_notes, out_file=predicted_file_path)
+
+    # Delete the temporary input MIDI file
+    os.remove(temp_file_path)
+
+    # Return the predicted MIDI file path in the response
+    return send_file(predicted_file_path, as_attachment=True)
+
+# def generate_notes(input_notes, model, temperature=2.0, num_predictions=120):
+#     generated_notes = []
+#     prev_start = 0
+#     for _ in range(num_predictions):
+#         pitch, step, duration = predict_next_note(input_notes, model, temperature)
+#         start = prev_start + step
+#         end = start + duration
+#         input_note = (pitch, step, duration)
+#         generated_notes.append((*input_note, start, end))
+#         input_notes = np.delete(input_notes, 0, axis=0)
+#         input_notes = np.append(input_notes, np.expand_dims(input_note, 0), axis=0)
+#         prev_start = start
+        
+#     return pd.DataFrame(generated_notes, columns=['pitch', 'step', 'duration', 'start', 'end'])
 
 def notes_to_midi(notes_df, out_file='output.mid', instrument_name='Acoustic Grand Piano'):
     out_pm = pretty_midi.PrettyMIDI()
