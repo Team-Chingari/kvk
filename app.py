@@ -11,7 +11,7 @@ import tensorflow.keras.backend as K
 
 app = Flask(__name__)
 
-model = keras.models.load_model("mooot.h5")
+model = keras.models.load_model("mooot.h5", compile=False)
 
 @app.route('/')
 def index():
@@ -22,11 +22,11 @@ def process_midi_file(file_path):
     pm = pretty_midi.PrettyMIDI(file_path)
     return midi_to_notes(pm)
 
-# @keras.saving.register_keras_serializable(package="my_package", name="mse_with_positive_pressure")
-# def mse_with_positive_pressure(y_true: tf.Tensor, y_pred: tf.Tensor):
-#   mse = (y_true - y_pred) ** 2
-#   positive_pressure = 10 * tf.maximum(-y_pred, 0.0)
-#   return tf.reduce_mean(mse + positive_pressure)
+@keras.saving.register_keras_serializable(name="mse_with_positive_pressure")
+def mse_with_positive_pressure(y_true: tf.Tensor, y_pred: tf.Tensor):
+  mse = (y_true - y_pred) ** 2
+  positive_pressure = 10 * tf.maximum(-y_pred, 0.0)
+  return tf.reduce_mean(mse + positive_pressure)
 
 def midi_to_notes(pm: pretty_midi.PrettyMIDI) -> pd.DataFrame:
     instrument = pm.instruments[0]
