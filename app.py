@@ -8,12 +8,9 @@ import os
 import tempfile
 import tensorflow.keras.backend as K
 
-# app = Flask(__name__)
+app = Flask(__name__)
 
-model = keras.models.load_model("moot.h5")
-
-print(model.summary())
-
+model =("mooot.h5")
 
 @app.route('/')
 def index():
@@ -52,7 +49,7 @@ def midi_to_notes(pm: pretty_midi.PrettyMIDI) -> pd.DataFrame:
 
 def predict_next_note(
     notes: np.ndarray,
-    model: tf.keras.Model,
+    model: keras.Model,
     temperature: float = 1.0) -> Tuple[int, float, float]:
     """Generates a note as a tuple of (pitch, step, duration), using a trained sequence model."""
     assert temperature > 0
@@ -149,4 +146,3 @@ def notes_to_midi(notes_df, out_file='output.mid', instrument_name='Acoustic Gra
 
 if __name__ == '__main__':
     app.run(debug=True)
-
