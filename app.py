@@ -3,6 +3,7 @@ import numpy as np
 import pretty_midi
 import collections
 import pandas as pd
+import tensorflow as tf
 import tensorflow.keras as keras
 import os
 import tempfile
@@ -10,11 +11,11 @@ import tensorflow.keras.backend as K
 
 app = Flask(__name__)
 
-model =("mooot.h5")
+model = keras.models.load_model("mooot.h5")
 
 @app.route('/')
 def index():
-    return render_template('upload_form.html')
+    return render_template('form.html')
 
 # Define function to process MIDI file and extract features
 def process_midi_file(file_path):
@@ -50,7 +51,7 @@ def midi_to_notes(pm: pretty_midi.PrettyMIDI) -> pd.DataFrame:
 def predict_next_note(
     notes: np.ndarray,
     model: keras.Model,
-    temperature: float = 1.0) -> Tuple[int, float, float]:
+    temperature: float = 1.0) -> tuple[int, float, float]:
     """Generates a note as a tuple of (pitch, step, duration), using a trained sequence model."""
     assert temperature > 0
 
