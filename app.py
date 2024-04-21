@@ -226,4 +226,4 @@ def notes_to_midi(notes_df, out_file='output.mid', instrument_name='Acoustic Gra
     return out_pm
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8001)
