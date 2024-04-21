@@ -70,7 +70,6 @@ def predict_next_note(
     # Add batch dimension
     inputs = tf.expand_dims(notes, 0)
 
-    print(model.summary())
     predictions = model.predict(inputs)
     pitch_logits = predictions['pitch']
     step = predictions['step']
