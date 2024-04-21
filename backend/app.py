@@ -25,7 +25,7 @@ model = keras.models.load_model("mooot.h5", compile=False)
 
 @app.route('/')
 def index():
-    return app.send_static_file('index.html')
+    return app.send_static_file('../frontend/index.html')
 
 # Define function to process MIDI file and extract features
 def process_midi_file(file_path):
