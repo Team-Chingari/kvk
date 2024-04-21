@@ -18,14 +18,9 @@ np.random.seed(seed)
 _SAMPLING_RATE = 16000
 key_order = ['pitch', 'step', 'duration']
 
-
 app = Flask(__name__)
 
 model = keras.models.load_model("mooot.h5", compile=False)
-
-@app.route('/')
-def index():
-    return render_template('form.html')
 
 # Define function to process MIDI file and extract features
 def process_midi_file(file_path):
@@ -119,11 +114,11 @@ def create_sequences(
 
   return sequences.map(split_labels, num_parallel_calls=tf.data.AUTOTUNE)
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict')
 def predict():
     # Check if a file is uploaded
     if 'file' not in request.files:
-        return jsonify({'error': 'No file uploaded'}), 400
+        print("This is a log message.")
     
     file = request.files['file']
     

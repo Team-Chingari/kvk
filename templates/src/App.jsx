@@ -18,8 +18,6 @@ function App() {
     })
       .then(response => response.blob())
       .then(blob => {
-        // Handle the predicted MIDI file
-        // For example, you can create a download link for the user
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
