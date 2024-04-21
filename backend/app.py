@@ -9,6 +9,7 @@ import os
 import tempfile
 import tensorflow.keras.backend as K
 from typing import Tuple
+from flask_cors import CORS
 
 seed = 42
 tf.random.set_seed(seed)
@@ -20,12 +21,13 @@ key_order = ['pitch', 'step', 'duration']
 
 
 app = Flask(__name__)
+CORS(app)
 
 model = keras.models.load_model("mooot.h5", compile=False)
 
 @app.route('/')
 def index():
-    return render_template('form.html')
+    return app.send_static_file('index.html')
 
 # Define function to process MIDI file and extract features
 def process_midi_file(file_path):
@@ -226,4 +228,4 @@ def notes_to_midi(notes_df, out_file='output.mid', instrument_name='Acoustic Gra
     return out_pm
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8001)
+    app.run(port=8000, debug=True)
