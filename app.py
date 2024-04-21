@@ -114,11 +114,11 @@ def create_sequences(
 
   return sequences.map(split_labels, num_parallel_calls=tf.data.AUTOTUNE)
 
-@app.route('/predict')
+@app.route('/predict', methods=['POST'])
 def predict():
     # Check if a file is uploaded
     if 'file' not in request.files:
-        print("This is a log message.")
+        return jsonify({'error': 'No file uploaded'}), 400
     
     file = request.files['file']
     
