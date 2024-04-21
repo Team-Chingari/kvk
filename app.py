@@ -18,7 +18,11 @@ np.random.seed(seed)
 _SAMPLING_RATE = 16000
 key_order = ['pitch', 'step', 'duration']
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../build', static_url_path='/')
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 model = keras.models.load_model("mooot.h5", compile=False)
 
