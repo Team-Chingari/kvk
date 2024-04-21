@@ -7,13 +7,10 @@ albumentations==1.3.1
 altgraph==0.17.4
 annotated-types==0.6.0
 anyio==3.7.1
-appnope @ file:///Users/cbousseau/work/recipes/ci_py311/appnope_1677917710869/work
-asttokens @ file:///opt/conda/conda-bld/asttokens_1646925590279/work
 astunparse==1.6.3
 async-timeout==4.0.3
 attrs==23.1.0
 audioread==3.0.1
-backcall @ file:///home/ktietz/src/ci/backcall_1611930011877/work
 beautifulsoup4==4.12.2
 blinker==1.7.0
 bs4==0.0.1
@@ -23,18 +20,16 @@ cffi==1.16.0
 chardet==3.0.4
 charset-normalizer==3.3.0
 click==8.1.7
-comm @ file:///Users/cbousseau/work/recipes/ci_py311/comm_1677919149446/work
 contourpy==1.1.1
 cycler==0.12.1
 dataclasses-json==0.6.2
-debugpy @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_563_nwtkoc/croot/debugpy_1690905063850/work
-decorator @ file:///opt/conda/conda-bld/decorator_1643638310831/work
-deepface==0.0.79
+debugpy
+decorator
 defusedxml==0.7.1
 Deprecated==1.2.14
 distro==1.8.0
 dlib==19.24.2
-executing @ file:///opt/conda/conda-bld/executing_1646925071911/work
+executing
 filelock==3.12.4
 fire==0.5.0
 Flask==3.0.0
@@ -60,16 +55,15 @@ huggingface-hub==0.18.0
 idna==2.10
 imageio==2.33.0
 imutils==0.5.4
-install==1.3.5
-ipykernel @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_98tee4lcge/croot/ipykernel_1691121640975/work
-ipython @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_6599f73fa7/croot/ipython_1694181355402/work
+ipykernel
+ipython
 itsdangerous==2.1.2
-jedi @ file:///Users/cbousseau/work/recipes/ci_py311_2/jedi_1678994967789/work
+jedi
 Jinja2==3.1.2
 joblib==1.3.2
 jstyleson==0.0.2
-jupyter_client @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_701yya0pqm/croot/jupyter_client_1680171868326/work
-jupyter_core @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_d1sy1hlz9t/croot/jupyter_core_1679906585151/work
+jupyter_client
+jupyter_core
 keras==2.14.0
 kiwisolver==1.4.5
 lazy_loader==0.3
@@ -83,8 +77,8 @@ macholib==1.16.3
 Markdown==3.5
 MarkupSafe==2.1.3
 marshmallow==3.20.1
-matplotlib==3.8.0
-matplotlib-inline @ file:///Users/cbousseau/work/recipes/ci_py311/matplotlib-inline_1677918241899/work
+matplotlib
+matplotlib-inline
 mediapipe==0.10.8
 mido==1.3.0
 ml-dtypes==0.2.0
@@ -110,19 +104,19 @@ openvino-telemetry==2023.2.1
 opt-einsum==3.3.0
 packaging==23.2
 pandas==2.1.1
-parso @ file:///opt/conda/conda-bld/parso_1641458642106/work
-pexpect @ file:///tmp/build/80754af9/pexpect_1605563209008/work
-pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
+parso
+pexpect
+pickleshare
 Pillow==10.1.0
-platformdirs @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_a8u4fy8k9o/croot/platformdirs_1692205661656/work
+platformdirs
 plyer==2.1.0
 pooch==1.8.0
 pretty-midi==0.2.10
-prompt-toolkit @ file:///Users/cbousseau/work/recipes/ci_py311/prompt-toolkit_1677918689663/work
+prompt-toolkit
 protobuf==3.20.3
-psutil @ file:///Users/cbousseau/work/recipes/ci_py311_2/psutil_1678995687212/work
-ptyprocess @ file:///tmp/build/80754af9/ptyprocess_1609355006118/work/dist/ptyprocess-0.7.0-py2.py3-none-any.whl
-pure-eval @ file:///opt/conda/conda-bld/pure_eval_1646925070566/work
+psutil
+ptyprocess
+pure-eval
 pyasn1==0.5.0
 pyasn1-modules==0.3.0
 PyAutoGUI==0.9.54
@@ -135,7 +129,7 @@ pyFluidSynth==1.3.2
 pygame==2.5.2
 PyGetWindow==0.0.9
 pyglet==2.0.10
-Pygments @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_29bs9f_dh9/croot/pygments_1684279974747/work
+Pygments
 pyinstaller==6.1.0
 pyinstaller-hooks-contrib==2023.10
 PyMsgBox==1.0.9
@@ -149,12 +143,12 @@ pyperclip==1.8.2
 PyRect==0.2.0
 PyScreeze==0.1.30
 PySocks==1.7.1
-python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+python-dateutil
 pytorch-lightning==1.4.9
 pytweening==1.0.7
 pytz==2023.3.post1
 PyYAML==6.0.1
-pyzmq @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_23n9bfwjq5/croot/pyzmq_1686601381911/work
+pyzmq
 qudida==0.0.4
 regex==2023.10.3
 requests==2.31.0
@@ -168,17 +162,17 @@ scikit-image==0.22.0
 scikit-learn==1.3.2
 scipy==1.11.3
 seaborn==0.13.0
-six @ file:///tmp/build/80754af9/six_1644875935023/work
+six
 sniffio==1.3.0
 sounddevice==0.4.6
 soundfile==0.12.1
 soupsieve==2.5
 soxr==0.3.7
 SQLAlchemy==2.0.23
-stack-data @ file:///opt/conda/conda-bld/stack_data_1646927590127/work
+stack-data
 sympy==1.12
 tenacity==8.2.3
-tensorboard==2.14.1
+tensorboard
 tensorboard-data-server==0.7.1
 tensorflow==2.14.0
 tensorflow-estimator==2.14.0
@@ -191,19 +185,19 @@ tifffile==2023.9.26
 tiktoken==0.5.1
 timm==0.9.7
 tokenizers==0.15.0
-torch==2.1.0
+torch
 torchmetrics==1.2.1
 torchvision==0.16.0
-tornado @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_3a5nrn2jeh/croot/tornado_1696936974091/work
+tornado
 tqdm==4.66.1
-traitlets @ file:///Users/cbousseau/work/recipes/ci_py311/traitlets_1677911650502/work
+traitlets
 transformers==4.35.2
 typing==3.7.4.3
 typing-inspect==0.9.0
 typing_extensions==4.8.0
 tzdata==2023.3
 urllib3==1.25.11
-wcwidth @ file:///Users/ktietz/demo/mc3/conda-bld/wcwidth_1629357192024/work
+wcwidth
 webrtcvad==2.0.10
 Werkzeug==3.0.0
 wrapt==1.14.1
