@@ -1,0 +1,210 @@
+absl-py==2.0.0
+addict==2.4.0
+aiohttp==3.8.6
+aiosignal==1.3.1
+aiostream==0.5.2
+albumentations==1.3.1
+altgraph==0.17.4
+annotated-types==0.6.0
+anyio==3.7.1
+appnope @ file:///Users/cbousseau/work/recipes/ci_py311/appnope_1677917710869/work
+asttokens @ file:///opt/conda/conda-bld/asttokens_1646925590279/work
+astunparse==1.6.3
+async-timeout==4.0.3
+attrs==23.1.0
+audioread==3.0.1
+backcall @ file:///home/ktietz/src/ci/backcall_1611930011877/work
+beautifulsoup4==4.12.2
+blinker==1.7.0
+bs4==0.0.1
+cachetools==5.3.1
+certifi==2023.7.22
+cffi==1.16.0
+chardet==3.0.4
+charset-normalizer==3.3.0
+click==8.1.7
+comm @ file:///Users/cbousseau/work/recipes/ci_py311/comm_1677919149446/work
+contourpy==1.1.1
+cycler==0.12.1
+dataclasses-json==0.6.2
+debugpy @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_563_nwtkoc/croot/debugpy_1690905063850/work
+decorator @ file:///opt/conda/conda-bld/decorator_1643638310831/work
+deepface==0.0.79
+defusedxml==0.7.1
+Deprecated==1.2.14
+distro==1.8.0
+dlib==19.24.2
+executing @ file:///opt/conda/conda-bld/executing_1646925071911/work
+filelock==3.12.4
+fire==0.5.0
+Flask==3.0.0
+Flask-Cors==4.0.0
+flatbuffers==23.5.26
+fonttools==4.43.1
+frozenlist==1.4.0
+fsspec==2023.9.2
+future==0.18.3
+gast==0.5.4
+gdown==4.7.1
+google-auth==2.23.3
+google-auth-oauthlib==1.0.0
+google-pasta==0.2.0
+greenlet==3.0.1
+grpcio==1.59.0
+gunicorn==21.2.0
+h11==0.14.0
+h5py==3.10.0
+httpcore==1.0.2
+httpx==0.25.2
+huggingface-hub==0.18.0
+idna==2.10
+imageio==2.33.0
+imutils==0.5.4
+install==1.3.5
+ipykernel @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_98tee4lcge/croot/ipykernel_1691121640975/work
+ipython @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_6599f73fa7/croot/ipython_1694181355402/work
+itsdangerous==2.1.2
+jedi @ file:///Users/cbousseau/work/recipes/ci_py311_2/jedi_1678994967789/work
+Jinja2==3.1.2
+joblib==1.3.2
+jstyleson==0.0.2
+jupyter_client @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_701yya0pqm/croot/jupyter_client_1680171868326/work
+jupyter_core @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_d1sy1hlz9t/croot/jupyter_core_1679906585151/work
+keras==2.14.0
+kiwisolver==1.4.5
+lazy_loader==0.3
+libclang==16.0.6
+librosa==0.10.1
+lightning-utilities==0.10.0
+llama-index==0.9.7
+llvmlite==0.41.1
+lxml==4.9.3
+macholib==1.16.3
+Markdown==3.5
+MarkupSafe==2.1.3
+marshmallow==3.20.1
+matplotlib==3.8.0
+matplotlib-inline @ file:///Users/cbousseau/work/recipes/ci_py311/matplotlib-inline_1677918241899/work
+mediapipe==0.10.8
+mido==1.3.0
+ml-dtypes==0.2.0
+MouseInfo==0.1.3
+mpmath==1.3.0
+msgpack==1.0.7
+mtcnn==0.1.1
+multidict==6.0.4
+mypy-extensions==1.0.0
+nest-asyncio==1.5.8
+networkx==3.1
+nltk==3.8.1
+numba==0.58.1
+numpy==1.26.1
+oauthlib==3.2.2
+openai==1.3.5
+opencv-contrib-python==4.8.1.78
+opencv-python==4.8.1.78
+opencv-python-headless==4.8.1.78
+openvino==2023.2.0
+openvino-dev==2023.2.0
+openvino-telemetry==2023.2.1
+opt-einsum==3.3.0
+packaging==23.2
+pandas==2.1.1
+parso @ file:///opt/conda/conda-bld/parso_1641458642106/work
+pexpect @ file:///tmp/build/80754af9/pexpect_1605563209008/work
+pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
+Pillow==10.1.0
+platformdirs @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_a8u4fy8k9o/croot/platformdirs_1692205661656/work
+plyer==2.1.0
+pooch==1.8.0
+pretty-midi==0.2.10
+prompt-toolkit @ file:///Users/cbousseau/work/recipes/ci_py311/prompt-toolkit_1677918689663/work
+protobuf==3.20.3
+psutil @ file:///Users/cbousseau/work/recipes/ci_py311_2/psutil_1678995687212/work
+ptyprocess @ file:///tmp/build/80754af9/ptyprocess_1609355006118/work/dist/ptyprocess-0.7.0-py2.py3-none-any.whl
+pure-eval @ file:///opt/conda/conda-bld/pure_eval_1646925070566/work
+pyasn1==0.5.0
+pyasn1-modules==0.3.0
+PyAutoGUI==0.9.54
+pycparser==2.21
+pydantic==2.5.2
+pydantic_core==2.14.5
+pyDeprecate==0.3.1
+pydub==0.25.1
+pyFluidSynth==1.3.2
+pygame==2.5.2
+PyGetWindow==0.0.9
+pyglet==2.0.10
+Pygments @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_29bs9f_dh9/croot/pygments_1684279974747/work
+pyinstaller==6.1.0
+pyinstaller-hooks-contrib==2023.10
+PyMsgBox==1.0.9
+pync==2.0.3
+pyobjc-core==10.0
+pyobjc-framework-Cocoa==10.0
+pyobjc-framework-Quartz==10.0
+pyobjus==1.2.2
+pyparsing==3.1.1
+pyperclip==1.8.2
+PyRect==0.2.0
+PyScreeze==0.1.30
+PySocks==1.7.1
+python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+pytorch-lightning==1.4.9
+pytweening==1.0.7
+pytz==2023.3.post1
+PyYAML==6.0.1
+pyzmq @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_23n9bfwjq5/croot/pyzmq_1686601381911/work
+qudida==0.0.4
+regex==2023.10.3
+requests==2.31.0
+requests-oauthlib==1.3.1
+Resemblyzer==0.1.4
+retina-face==0.0.13
+rsa==4.9
+rubicon-objc==0.4.7
+safetensors==0.4.0
+scikit-image==0.22.0
+scikit-learn==1.3.2
+scipy==1.11.3
+seaborn==0.13.0
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+sniffio==1.3.0
+sounddevice==0.4.6
+soundfile==0.12.1
+soupsieve==2.5
+soxr==0.3.7
+SQLAlchemy==2.0.23
+stack-data @ file:///opt/conda/conda-bld/stack_data_1646927590127/work
+sympy==1.12
+tenacity==8.2.3
+tensorboard==2.14.1
+tensorboard-data-server==0.7.1
+tensorflow==2.14.0
+tensorflow-estimator==2.14.0
+tensorflow-io-gcs-filesystem==0.34.0
+tensorflow-macos==2.14.0
+termcolor==2.3.0
+texttable==1.7.0
+threadpoolctl==3.2.0
+tifffile==2023.9.26
+tiktoken==0.5.1
+timm==0.9.7
+tokenizers==0.15.0
+torch==2.1.0
+torchmetrics==1.2.1
+torchvision==0.16.0
+tornado @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_3a5nrn2jeh/croot/tornado_1696936974091/work
+tqdm==4.66.1
+traitlets @ file:///Users/cbousseau/work/recipes/ci_py311/traitlets_1677911650502/work
+transformers==4.35.2
+typing==3.7.4.3
+typing-inspect==0.9.0
+typing_extensions==4.8.0
+tzdata==2023.3
+urllib3==1.25.11
+wcwidth @ file:///Users/ktietz/demo/mc3/conda-bld/wcwidth_1629357192024/work
+webrtcvad==2.0.10
+Werkzeug==3.0.0
+wrapt==1.14.1
+yarl==1.9.2
