@@ -9,7 +9,6 @@ import os
 import tempfile
 import tensorflow.keras.backend as K
 from typing import Tuple
-from flask_cors import CORS
 
 seed = 42
 tf.random.set_seed(seed)
@@ -21,7 +20,6 @@ key_order = ['pitch', 'step', 'duration']
 
 
 app = Flask(__name__)
-CORS(app)
 
 model = keras.models.load_model("mooot.h5", compile=False)
 
