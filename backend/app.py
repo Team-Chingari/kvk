@@ -21,7 +21,8 @@ key_order = ['pitch', 'step', 'duration']
 
 app = Flask(__name__)
 
-model = keras.models.load_model("mooot.h5", compile=False)
+# model = keras.models.load_model("mooot.h5", compile=False)
+model = keras.models.load_model("models/ckpt_10.weights.h5", compile=False)
 
 @app.route('/')
 def index():
