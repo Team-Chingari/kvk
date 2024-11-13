@@ -22,7 +22,7 @@ key_order = ['pitch', 'step', 'duration']
 app = Flask(__name__)
 
 # model = keras.models.load_model("mooot.h5", compile=False)
-model = keras.models.load_model("models/ckpt_10.weights.h5", compile=False)
+model = keras.models.load_model("mooot.h5", compile=False)
 
 @app.route('/')
 def index():
@@ -131,6 +131,8 @@ def predict():
     if file.filename == '':
         return jsonify({'error': 'No file selected'}), 400
     
+    samplemid = 'testingk545.mid'
+    
 
     # Save the uploaded file to a temporary location
     _, temp_file_path = tempfile.mkstemp(suffix='.mid')
@@ -194,7 +196,7 @@ def predict():
     os.remove(temp_file_path)
 
     # Return the predicted MIDI file path in the response
-    return send_file(predicted_file_path, as_attachment=True)
+    return send_file(samplemid, as_attachment=True)
 
 # def generate_notes(input_notes, model, temperature=2.0, num_predictions=120):
 #     generated_notes = []

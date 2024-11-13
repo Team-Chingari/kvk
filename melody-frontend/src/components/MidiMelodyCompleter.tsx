@@ -58,15 +58,15 @@ export default function MidiMelodyCompleter() {
     <div className="min-h-screen bg-[#FAF9F6] flex flex-col items-center justify-center p-4 text-gray-800 font-sans">
       <div className="flex items-center gap-4 mb-12">
         <div className="w-16 h-16 relative">
-          <div className="absolute inset-0 bg-[#C85C3C] rounded-full transform rotate-45"></div>
-          <div className="absolute inset-0 bg-[#C85C3C] rounded-full transform -rotate-45"></div>
+          <div className="absolute inset-0 bg-[#235347] rounded-full transform rotate-45"></div>
+          <div className="absolute inset-0 bg-[#235347] rounded-full transform -rotate-45"></div>
           <div className="absolute inset-2 bg-[#FAF9F6] rounded-full flex items-center justify-center">
-            <svg className="w-8 h-8 text-[#C85C3C]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-8 h-8 text-[#235347]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
             </svg>
           </div>
         </div>
-        <span className="text-3xl font-semibold font-serif">MIDI Melody</span>
+        <span className="text-3xl font-semibold font-serif">AI Based Melody Completion</span>
       </div>
 
       <h1 className="text-5xl font-serif mb-16 max-w-lg text-center leading-tight">
@@ -91,7 +91,7 @@ export default function MidiMelodyCompleter() {
               onChange={handleFileChange}
               className="hidden"
             />
-            <svg className="w-5 h-5 mr-2 text-[#C85C3C]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-5 h-5 mr-2 text-[#235347]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
             </svg>
             {file ? file.name : 'Choose MIDI file'}
@@ -99,7 +99,7 @@ export default function MidiMelodyCompleter() {
 
           <button 
             type="submit" 
-            className={`w-full h-14 text-white transition-colors bg-[#C85C3C] hover:bg-[#B54D31] ${(!file || isLoading) ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className={`w-full h-14 text-white transition-colors bg-[#235347] hover:bg-[#B54D31] ${(!file || isLoading) ? 'opacity-50 cursor-not-allowed' : ''}`}
             disabled={!file || isLoading}
           >
             {isLoading ? (
@@ -123,7 +123,7 @@ export default function MidiMelodyCompleter() {
               onClick={handleDownload}
               className="w-full h-14 border-2 hover:bg-gray-50 transition-colors flex items-center justify-center"
             >
-              <svg className="w-5 h-5 mr-2 text-[#C85C3C]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-5 h-5 mr-2 text-[#235347]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
               </svg>
               Download Enhanced Melody
@@ -136,19 +136,10 @@ export default function MidiMelodyCompleter() {
         </p>
       </div>
 
-      <button className="mt-8 text-gray-500 flex items-center gap-1">
-        Learn more
-        <span className="inline-block rotate-90">›</span>
-      </button>
+      <span className="mt-8 text-gray-500 flex items-center gap-1">
+        Spandan Kumar, Nishank Goyal, Pranav Dhawan
+      </span>
 
-      <div className="fixed bottom-6 flex gap-2">
-        {[0, 1, 2, 3].map((i) => (
-          <div
-            key={i}
-            className={`w-2 h-2 rounded-full ${i === 0 ? "bg-gray-800" : "bg-gray-300"}`}
-          />
-        ))}
-      </div>
     </div>
   )
 }
